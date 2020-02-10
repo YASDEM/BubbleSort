@@ -22,9 +22,9 @@ public class ListOfListTest {
 		assertEquals(lists.get(0).length, 2);
 		assertEquals(lists.get(1).length, 2);
 		//assertEquals(lists.get(2).length, 1);
-		//assertEquals(lists.size(), 3);
+		assertEquals(lists.size(), 3);
 		
-		System.out.println(lists.get(2)[0]);
+		System.out.println(lists.get(2)[1]);
 	}
 	@Test
 	public void trueTest() {
