@@ -16,7 +16,11 @@ public class ListOfList {
 					slice[j] = numbers[size*i+j];
 				} catch (ArrayIndexOutOfBoundsException e) {
 					if (!discard) {
-						result.add(slice);
+						int[] shortSlice = new int[numbers.length % size];
+						for (int k = 0; k<shortSlice.length; k++) {
+							shortSlice[k] = slice[k];
+						}
+						result.add(shortSlice);
 					}
 					break outer;
 				}
