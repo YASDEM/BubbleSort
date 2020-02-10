@@ -18,18 +18,17 @@ public class ListOfListTest {
 	
 	@Test
 	public void falseTest() {
-		ListOfList lol = new ListOfList();
-		List<int[]> lists = lol.sliceList(array, 2, false);
+		List<int[]> lists = ListOfList.sliceList(array, 2, false);
 		assertEquals(lists.get(0).length, 2);
 		assertEquals(lists.get(1).length, 2);
 		assertEquals(lists.get(2).length, 1);
 		assertEquals(lists.size(), 3);
 		
+		
 	}
 	@Test
 	public void trueTest() {
-		ListOfList lol = new ListOfList();
-		List<int[]> lists = lol.listOfList(array, 2, true);
+		List<int[]> lists = ListOfList.sliceList(array, 2, true);
 		assertEquals(lists.get(0).length, 2);
 		assertEquals(lists.get(1).length, 2);
 		assertEquals(lists.size(), 2);
@@ -38,8 +37,7 @@ public class ListOfListTest {
 	}
 	@Test(expected = NullPointerException.class)
 	public void nullTest() {
-		ListOfList lol = new ListOfList();
-		List<int[]> lists = lol.listOfList(null, 2, true);
+		List<int[]> lists = ListOfList.sliceList(null, 2, true);
 		
 		
 	}
