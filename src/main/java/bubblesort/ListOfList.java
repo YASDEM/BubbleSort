@@ -15,7 +15,7 @@ public class ListOfList {
 				try {
 					slice[j] = numbers[size*i+j];
 				} catch (ArrayIndexOutOfBoundsException e) {
-					if (discard) {
+					if (!discard) {
 						result.add(slice);
 					}
 					break outer;
