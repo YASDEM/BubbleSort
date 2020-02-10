@@ -4,6 +4,10 @@ public class BubbleSort {
 
 	public static void betterSort(int[] array, boolean reverse){
         boolean sorted = false;
+        
+        if(array == null) {
+        	throw new NullPointerException(); 
+        } else {
        
         while (!sorted) {
             sorted = true;
@@ -21,11 +25,10 @@ public class BubbleSort {
                     array[i] = zahl2;
                     array[i+1] = zahl1;
                 }
-            } catch (NullPointerException e) {
-                System.out.println("needs an array");
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("index error");
             }
+        }
         }
     }
 	
