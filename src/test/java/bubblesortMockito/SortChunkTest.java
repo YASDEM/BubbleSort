@@ -38,8 +38,10 @@ public class SortChunkTest {
 		sortChunk.bubbleSortInterface = mock(BubbleSort.class);
 		sortChunk.listOfListInterface = mock(ListOfList.class);
 			
-		ArgumentCaptor<int[]> intArrayCaptor = ArgumentCaptor.forClass(int[].class);
-		ArgumentCaptor<Boolean> booleanCaptor = ArgumentCaptor.forClass(Boolean.class);
+		ArgumentCaptor<int[]> intArrayCaptorSort = ArgumentCaptor.forClass(int[].class);
+		ArgumentCaptor<int[]> intArrayCaptorList = ArgumentCaptor.forClass(int[].class);
+		ArgumentCaptor<Boolean> booleanCaptorSort = ArgumentCaptor.forClass(Boolean.class);
+		ArgumentCaptor<Boolean> booleanCaptorList = ArgumentCaptor.forClass(Boolean.class);
 		ArgumentCaptor<Integer> integerCaptor = ArgumentCaptor.forClass(Integer.class);
 
 		when(sortChunk.bubbleSortInterface.betterSort(new int[] { 1, 2, 3, 4 }, false))
@@ -51,9 +53,15 @@ public class SortChunkTest {
 		List<int[]> result = sortChunk.sortSlice(new int[] { 1, 2, 3, 4 }, false, 2, false);
 		
 		// Verify mock behaviour
-		verify(sortChunk.bubbleSortInterface).betterSort(intArrayCaptor.capture(), booleanCaptor.capture());
-		verify(sortChunk.listOfListInterface).sliceList(intArrayCaptor.capture(), integerCaptor.capture(), booleanCaptor.capture());
-		
+		verify(sortChunk.bubbleSortInterface).betterSort(intArrayCaptorSort.capture(), booleanCaptorSort.capture());
+		verify(sortChunk.listOfListInterface).sliceList(intArrayCaptorList.capture(), integerCaptor.capture(), booleanCaptorList.capture());
+		assertArrayEquals(intArrayCaptorSort.getValue(), new int[] { 1, 2, 3, 4 });
+		assertEquals(booleanCaptorSort.getValue(), false);
+
+		assertArrayEquals(intArrayCaptorList.getValue(), new int[] { 1, 2, 3, 4 });
+		assertEquals(integerCaptor.getValue().intValue(), 2);
+		assertEquals(booleanCaptorList.getValue(), false);
+
 		// Verify stub result
 		assertEquals(result, slices);
 	}
