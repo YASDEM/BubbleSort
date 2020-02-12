@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import bubblesort.BubbleSort;
 import bubblesort.ListOfList;
@@ -31,12 +32,17 @@ public class SortChunkTest {
 
 	@Test
 	public void test() {
+		
 		List<int[]> slices = new ArrayList<int[]>();
+		
+		BubbleSort spyBubbleSort = Mockito.spy(new BubbleSort());
+		ListOfList spyListOfList = Mockito.spy(new ListOfList());
+		
 		slices.add(new int[] { 1, 2 });
 		slices.add(new int[] { 3, 4 });
 		
-		sortChunk.bubbleSortInterface = mock(BubbleSort.class);
-		sortChunk.listOfListInterface = mock(ListOfList.class);
+		sortChunk.bubbleSortInterface = spyBubbleSort; //mock(BubbleSort.class);
+		sortChunk.listOfListInterface = spyListOfList; //mock(ListOfList.class);
 			
 		ArgumentCaptor<int[]> intArrayCaptorSort = ArgumentCaptor.forClass(int[].class);
 		ArgumentCaptor<int[]> intArrayCaptorList = ArgumentCaptor.forClass(int[].class);
