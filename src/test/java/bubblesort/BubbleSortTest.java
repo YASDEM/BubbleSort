@@ -18,15 +18,17 @@ public class BubbleSortTest {
 
 	@Test
 	public void testBetterSort() {
+		BubbleSort bs = new BubbleSort();
 		int[] unsorted = {0, 5, 2, 1, 8, 7};
-		BubbleSort.betterSort(unsorted, false);
+		bs.betterSort(unsorted, false);
 		assertTrue(ArrayUtils.isSorted(unsorted));
 	}
 	
 	@Test(expected = NullPointerException.class)
 	public void testBetterSortNullPointer() {
+		BubbleSort bs = new BubbleSort();
 		int[] unsorted = null;
-		BubbleSort.betterSort(unsorted, false);
+		bs.betterSort(unsorted, false);
 		fail("NullPointerException expected");
 	}
 	

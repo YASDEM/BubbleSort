@@ -1,8 +1,10 @@
 package bubblesort;
 
-public class BubbleSort {
 
-	public static void betterSort(int[] array, boolean reverse){
+public class BubbleSort implements BubbleSortInterface{
+
+	
+	public int[] betterSort(int[] array, boolean reverse){
         boolean sorted = false;
         
         if(array == null) {
@@ -29,6 +31,8 @@ public class BubbleSort {
                 System.out.println("index error");
             }
         }
+        return array;
+       
         }
     }
 	

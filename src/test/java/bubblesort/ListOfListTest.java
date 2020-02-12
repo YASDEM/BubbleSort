@@ -20,7 +20,8 @@ public class ListOfListTest {
 	
 	@Test
 	public void falseTest() {
-		List<int[]> lists = ListOfList.sliceList(array, splitSize, false);
+		ListOfList lol = new ListOfList();
+		List<int[]> lists = lol.sliceList(array, splitSize, false);
 		assertEquals(lists.get(0).length, 2);
 		assertEquals(lists.get(1).length, 2);
 		assertEquals(lists.get(2).length, 1);
@@ -31,7 +32,8 @@ public class ListOfListTest {
 	}
 	@Test
 	public void trueTest() {
-		List<int[]> lists = ListOfList.sliceList(array, splitSize, true);
+		ListOfList lol = new ListOfList();
+		List<int[]> lists = lol.sliceList(array, splitSize, true);
 		assertEquals(lists.get(0).length, 2);
 		assertEquals(lists.get(1).length, 2);
 		assertEquals(lists.size(), 2);
@@ -41,14 +43,15 @@ public class ListOfListTest {
 	}
 	@Test(expected = NullPointerException.class)
 	public void nullTest() {
-		List<int[]> lists = ListOfList.sliceList(null, splitSize, true);
+		ListOfList lol = new ListOfList();
+		List<int[]> lists = lol.sliceList(null, splitSize, true);
 	}
 	
 	
 	@Test
 	public void contentTest() {
-		
-		List<int[]> lists = ListOfList.sliceList(array, splitSize, true);
+		ListOfList lol = new ListOfList();
+		List<int[]> lists = lol.sliceList(array, splitSize, true);
 		for(int i = 0; i < lists.size(); i++) {
 			assertEquals(lists.get(i/splitSize)[i%splitSize], array[i]);
 		}

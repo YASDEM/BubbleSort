@@ -3,8 +3,10 @@ package bubblesort;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListOfList {
-	public static List<int[]> sliceList(int[] numbers, int size, boolean discard){
+
+public class ListOfList implements ListOfListInterface{
+	
+	public List<int[]> sliceList(int[] numbers, int size, boolean discard){
 		List<int[]> result = new ArrayList<int[]>();
 		
 		int numSlices = numbers.length / size + 1;
